@@ -1,9 +1,18 @@
+import cgi
+from operator import length_hint
 import string, secrets
 
-nmbr = "0123456789"
+chrs = string.ascii_letters + string.digits + string.printable
+nmbrs = string.digits
 
-length = input("Choose your pin length: ")
+choose = input("Do you want to generate a password or a pin: ")
+length = input("Choose your password/pin length: ")
 
-pin = ''.join(secrets.choice(nmbr) for i in range(int(length)))
+password_in_chrs = ''.join(secrets.choice(chrs) for i in range(int(length)))
+password_in_nmbrs = ''.join(secrets.choice(nmbrs) for i in range(int(length)))
 
-print('PIN: ' + pin)
+if choose == "password":
+    print(password_in_chrs)
+
+if choose == "pin":
+    print(password_in_nmbrs)
