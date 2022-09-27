@@ -1,13 +1,9 @@
-import random
+import string, secrets
 
-lower_case = "abcdefghijklmnopqrstuvwxyz"
-upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-number = "0123456789"
-symbols = "@#$%^&*/\?"
+nmbr = "0123456789"
 
-letter_types = lower_case + upper_case + number + symbols
-pass_length = "12" #change to length of password
+length = input("Choose your pin length: ")
 
-password = "".join(random.sample(letter_types, pass_length))
+pin = ''.join(secrets.choice(nmbr) for i in range(int(length)))
 
-print("Your password is:")
+print('PIN: ' + pin)
